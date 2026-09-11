@@ -1,0 +1,156 @@
+{
+  "schema": 1,
+  "name": "AICO",
+  "channel": "preview",
+  "repositoryURL": "https://gitcode.com/AICO-Ascend/AICO-Harness",
+  "releaseURL": "https://gitcode.com/AICO-Ascend/AICO-Harness/releases",
+  "docsURL": "https://gitcode.com/AICO-Ascend/AICO-Harness",
+  "plugins": [
+    {
+      "id": "aico-ppt",
+      "name": "AICO-PPT",
+      "description": "创建演示文稿、在可视化工作区编辑并导出。桌面插件支持 macOS Apple 芯片与 Windows x64，也可用独立 Skill 对接其他 Agent。",
+      "version": "0.1.8",
+      "repositoryURL": "https://gitcode.com/AICO-Ascend/AICO-PPT"
+    },
+    {
+      "id": "aico-profile",
+      "name": "AICO-Profile",
+      "description": "分析性能文件并定位时间线事件。原生 Insight 可视化插件本次支持 macOS Apple 芯片；独立 Skill 可供其他 Agent 分析 CSV、SQLite 和 Trace 文件。",
+      "version": "0.2.6",
+      "repositoryURL": "https://gitcode.com/AICO-Ascend/AICO-Profile"
+    }
+  ],
+  "downloads": [
+    {
+      "filename": "AICO-0.1.0-alpha.2-mac-arm64-offline.tar.gz",
+      "bytes": 439002482,
+      "sha256": "c6ccfa52c2f57ca3b23b37661707c98f376fb92b2bfa60a38d13da85ad32f28c",
+      "label": "macOS 完整离线包 · 桌面 + PPT + Profile",
+      "kind": "offline",
+      "platform": "darwin",
+      "arch": "arm64",
+      "version": "0.1.0-alpha.2",
+      "status": "ready",
+      "url": "https://gitcode.com/AICO-Ascend/AICO-Harness/releases/download/v0.1.0-alpha.2/AICO-0.1.0-alpha.2-mac-arm64-offline.tar.gz"
+    },
+    {
+      "filename": "AICO-0.1.0-alpha.2-mac-arm64-host.dmg",
+      "bytes": 216957714,
+      "sha256": "2c645dd6118b7122afe00a6e5ae1c4a1ed25a2b1a5cb68c7d401d87f6efd8ae5",
+      "label": "macOS 桌面安装器 · 仅主程序",
+      "kind": "host",
+      "platform": "darwin",
+      "arch": "arm64",
+      "version": "0.1.0-alpha.2",
+      "status": "ready",
+      "url": "https://gitcode.com/AICO-Ascend/AICO-Harness/releases/download/v0.1.0-alpha.2/AICO-0.1.0-alpha.2-mac-arm64-host.dmg"
+    },
+    {
+      "filename": "AICO-0.1.0-alpha.2-win-x64-offline.tar.gz",
+      "bytes": 315787193,
+      "sha256": "1e46f1041a231703c640f1f976c9451a65914dfe47b9a6ecd49ab159f5221b9a",
+      "label": "Windows 完整离线包 · 桌面 + PPT",
+      "kind": "offline",
+      "platform": "win32",
+      "arch": "x64",
+      "version": "0.1.0-alpha.2",
+      "status": "ready",
+      "url": "https://gitcode.com/AICO-Ascend/AICO-Harness/releases/download/v0.1.0-alpha.2/AICO-0.1.0-alpha.2-win-x64-offline.tar.gz"
+    },
+    {
+      "filename": "AICO-0.1.0-alpha.2-win-x64-host.exe",
+      "bytes": 194756710,
+      "sha256": "a62717e4186d7760d8e2d6ebebd8c516eb851abe40e40b750440bb960783ba3e",
+      "label": "Windows 桌面安装器 · 仅主程序",
+      "kind": "host",
+      "platform": "win32",
+      "arch": "x64",
+      "version": "0.1.0-alpha.2",
+      "status": "ready",
+      "url": "https://gitcode.com/AICO-Ascend/AICO-Harness/releases/download/v0.1.0-alpha.2/AICO-0.1.0-alpha.2-win-x64-host.exe"
+    },
+    {
+      "filename": "AICO-PPT-0.1.8-skill.zip",
+      "bytes": 80368170,
+      "sha256": "7e2959f8638339e5c2dfa30a9b7b755d8d21ca24880b6d41bd179d48eb1121f3",
+      "label": "AICO-PPT 独立 Skill · 创建与编辑演示文稿",
+      "kind": "skill",
+      "platform": "any",
+      "arch": "any",
+      "version": "0.1.8",
+      "status": "ready",
+      "url": "https://gitcode.com/AICO-Ascend/AICO-Harness/releases/download/v0.1.0-alpha.2/AICO-PPT-0.1.8-skill.zip"
+    },
+    {
+      "filename": "AICO-Profile-0.2.6-skill.zip",
+      "bytes": 19550,
+      "sha256": "fb9370a5fac436f1b455345beafdb472a9c01d32032cedabfc1c1a2bfab1defd",
+      "label": "AICO-Profile 独立 Skill · 性能文件分析",
+      "kind": "skill",
+      "platform": "any",
+      "arch": "any",
+      "version": "0.2.6",
+      "status": "ready",
+      "url": "https://gitcode.com/AICO-Ascend/AICO-Harness/releases/download/v0.1.0-alpha.2/AICO-Profile-0.2.6-skill.zip"
+    }
+  ],
+  "demos": [
+    {
+      "pluginId": "aico-ppt",
+      "title": "AICO-PPT · 编辑与导出",
+      "description": "修改标题、撤销与重做，并导出可编辑 PPTX。",
+      "steps": [
+        "修改封面标题",
+        "撤销、重做并预览页面",
+        "导出可编辑 PPTX"
+      ],
+      "video": {
+        "path": "media/aico-ppt-video-5ef4821f01dd9baff1d703619a42d886630c3d7fd6244d44bef4e4670f712c8b.mp4",
+        "bytes": 2445725,
+        "sha256": "5ef4821f01dd9baff1d703619a42d886630c3d7fd6244d44bef4e4670f712c8b",
+        "mimeType": "video/mp4"
+      },
+      "poster": {
+        "path": "media/aico-ppt-poster-d3053e5179f167ec6f64e023aacfc75b41d68b859e5cca080ec66119e822a0ba.png",
+        "bytes": 914782,
+        "sha256": "d3053e5179f167ec6f64e023aacfc75b41d68b859e5cca080ec66119e822a0ba",
+        "mimeType": "image/png"
+      },
+      "captions": {
+        "path": "media/aico-ppt-captions-0805ba7e31a32be1263294f89008fecc8417fa31f7691a3535204c5697cee88f.vtt",
+        "bytes": 510,
+        "sha256": "0805ba7e31a32be1263294f89008fecc8417fa31f7691a3535204c5697cee88f",
+        "mimeType": "text/vtt"
+      }
+    },
+    {
+      "pluginId": "aico-profile",
+      "title": "AICO-Profile · 定位性能事件",
+      "description": "在真实 Insight 时间线中框选事件、查询结果，并定位 MatMul 详情。演示使用合成数据。",
+      "steps": [
+        "框选时间线并查看事件",
+        "精确定位 MatMul",
+        "查看原生详情并返回全景"
+      ],
+      "video": {
+        "path": "media/aico-profile-video-2eb53ccbe9bfcd2b638cdb1b78f6bb57692edbc8b6c93e7cfd365fb8a4905330.mp4",
+        "bytes": 869490,
+        "sha256": "2eb53ccbe9bfcd2b638cdb1b78f6bb57692edbc8b6c93e7cfd365fb8a4905330",
+        "mimeType": "video/mp4"
+      },
+      "poster": {
+        "path": "media/aico-profile-poster-0088bfdc31883ee969fd578b4b88520f3866be65229835dc2c738f14ade4023d.png",
+        "bytes": 110682,
+        "sha256": "0088bfdc31883ee969fd578b4b88520f3866be65229835dc2c738f14ade4023d",
+        "mimeType": "image/png"
+      },
+      "captions": {
+        "path": "media/aico-profile-captions-aac779c644b78a33947303d7c6a6db66efd11ec27431a6ac3e8aaee920dedd78.vtt",
+        "bytes": 421,
+        "sha256": "aac779c644b78a33947303d7c6a6db66efd11ec27431a6ac3e8aaee920dedd78",
+        "mimeType": "text/vtt"
+      }
+    }
+  ]
+}
