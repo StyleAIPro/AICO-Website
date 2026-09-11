@@ -98,57 +98,59 @@
   "demos": [
     {
       "pluginId": "aico-ppt",
-      "title": "AICO-PPT · 编辑与导出",
-      "description": "修改标题、撤销与重做，并导出可编辑 PPTX。",
+      "title": "AICO-PPT · 对话创作与人工编辑",
+      "description": "在 Harness 中安装插件、对话创作，手动修改后框选三处，一次批量交给 AI 完成并导出。生成与等待过程已节选或加速。",
       "steps": [
-        "修改封面标题",
-        "撤销、重做并预览页面",
-        "导出可编辑 PPTX"
+        "安装插件，在左侧会话创作",
+        "右侧手动编辑、撤销与重做",
+        "三处框选，一次批量下发任务",
+        "保留人工修改，导出可编辑 PPTX"
       ],
       "video": {
-        "path": "media/aico-ppt-video-5ef4821f01dd9baff1d703619a42d886630c3d7fd6244d44bef4e4670f712c8b.mp4",
-        "bytes": 2445725,
-        "sha256": "5ef4821f01dd9baff1d703619a42d886630c3d7fd6244d44bef4e4670f712c8b",
+        "path": "media/aico-ppt-video-d8d0d45a9a218e872ae2731d63f3a440218027b05d04856762997a77525935ed.mp4",
+        "bytes": 3878839,
+        "sha256": "d8d0d45a9a218e872ae2731d63f3a440218027b05d04856762997a77525935ed",
         "mimeType": "video/mp4"
       },
       "poster": {
-        "path": "media/aico-ppt-poster-d3053e5179f167ec6f64e023aacfc75b41d68b859e5cca080ec66119e822a0ba.png",
-        "bytes": 914782,
-        "sha256": "d3053e5179f167ec6f64e023aacfc75b41d68b859e5cca080ec66119e822a0ba",
+        "path": "media/aico-ppt-poster-cb32677174535a4892da1f7280986e809b215de90c94a0cc32269399beb1c949.png",
+        "bytes": 559286,
+        "sha256": "cb32677174535a4892da1f7280986e809b215de90c94a0cc32269399beb1c949",
         "mimeType": "image/png"
       },
       "captions": {
-        "path": "media/aico-ppt-captions-0805ba7e31a32be1263294f89008fecc8417fa31f7691a3535204c5697cee88f.vtt",
-        "bytes": 510,
-        "sha256": "0805ba7e31a32be1263294f89008fecc8417fa31f7691a3535204c5697cee88f",
+        "path": "media/aico-ppt-captions-fc7fc124da23adcf2d0e1296f263f4592fede4cb091094b1613f678dce97fdf5.vtt",
+        "bytes": 1650,
+        "sha256": "fc7fc124da23adcf2d0e1296f263f4592fede4cb091094b1613f678dce97fdf5",
         "mimeType": "text/vtt"
       }
     },
     {
       "pluginId": "aico-profile",
-      "title": "AICO-Profile · 定位性能事件",
-      "description": "在真实 Insight 时间线中框选事件、查询结果，并定位 MatMul 详情。演示使用合成数据。",
+      "title": "AICO-Profile · 对话分析与手动探索",
+      "description": "AI 在会话中查询并定位事件，人手动缩放、框选，再让 AI 接着分析当前选区。演示使用合成数据，等待过程已加速。",
       "steps": [
-        "框选时间线并查看事件",
-        "精确定位 MatMul",
-        "查看原生详情并返回全景"
+        "安装插件，导入性能数据",
+        "左侧对话查询，右侧定位事件",
+        "手动缩放、拖动与框选",
+        "AI 分析当前选区，人工核对详情"
       ],
       "video": {
-        "path": "media/aico-profile-video-2eb53ccbe9bfcd2b638cdb1b78f6bb57692edbc8b6c93e7cfd365fb8a4905330.mp4",
-        "bytes": 869490,
-        "sha256": "2eb53ccbe9bfcd2b638cdb1b78f6bb57692edbc8b6c93e7cfd365fb8a4905330",
+        "path": "media/aico-profile-video-5d8721e18bb2fecc00a3e7aa699887930affc7f49162e92f74527d1d0373de29.mp4",
+        "bytes": 3305594,
+        "sha256": "5d8721e18bb2fecc00a3e7aa699887930affc7f49162e92f74527d1d0373de29",
         "mimeType": "video/mp4"
       },
       "poster": {
-        "path": "media/aico-profile-poster-0088bfdc31883ee969fd578b4b88520f3866be65229835dc2c738f14ade4023d.png",
-        "bytes": 110682,
-        "sha256": "0088bfdc31883ee969fd578b4b88520f3866be65229835dc2c738f14ade4023d",
+        "path": "media/aico-profile-poster-781228cdf98494e35a771f18a97a01b43fe8202ae145f2c1f8cfa0976cd9d086.png",
+        "bytes": 432995,
+        "sha256": "781228cdf98494e35a771f18a97a01b43fe8202ae145f2c1f8cfa0976cd9d086",
         "mimeType": "image/png"
       },
       "captions": {
-        "path": "media/aico-profile-captions-aac779c644b78a33947303d7c6a6db66efd11ec27431a6ac3e8aaee920dedd78.vtt",
-        "bytes": 421,
-        "sha256": "aac779c644b78a33947303d7c6a6db66efd11ec27431a6ac3e8aaee920dedd78",
+        "path": "media/aico-profile-captions-61e3061789ac42ec0d32bdf03802db5b518e2f6fa854f36d2b8e1ce1fb710acb.vtt",
+        "bytes": 1616,
+        "sha256": "61e3061789ac42ec0d32bdf03802db5b518e2f6fa854f36d2b8e1ce1fb710acb",
         "mimeType": "text/vtt"
       }
     }
