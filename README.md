@@ -11,4 +11,4 @@
 
 更新时先由产品发布流程生成并验收网站，然后将 `index.html`、`release.json` 和 `media/` 同步到 `docs/`，保留 `.nojekyll`。媒体路径相对于网页，支持 Pages 项目子路径。`edgeone.json` 为原托管平台专用配置，不在此发布。
 
-当前版本：Harness 0.1.0-alpha.2、PPT 0.1.8、Profile 0.2.6。录屏来自真实插件操作，Profile 演示使用合成数据。下载链接与 SHA-256 保留 GitCode 已验证发布记录。
+当前版本：Harness 0.1.0-alpha.2、PPT 0.1.8、Profile 0.2.7。Windows x64 和 macOS ARM64 完整离线包均包含 PPT 与 Profile 原生可视化。录屏来自真实插件操作，Profile 演示使用合成数据。下载链接与 SHA-256 保留 GitCode 已验证发布记录。

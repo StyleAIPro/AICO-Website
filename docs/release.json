@@ -16,23 +16,23 @@
     {
       "id": "aico-profile",
       "name": "AICO-Profile",
-      "description": "分析性能文件并定位时间线事件。原生 Insight 可视化插件本次支持 macOS Apple 芯片；独立 Skill 可供其他 Agent 分析 CSV、SQLite 和 Trace 文件。",
-      "version": "0.2.6",
+      "description": "分析性能文件并定位时间线事件。原生 Insight 可视化插件支持 macOS Apple 芯片与 Windows x64，可在 Harness 中对话分析、手动探索；独立 Skill 可供其他 Agent 分析 CSV、SQLite 和 Trace 文件。",
+      "version": "0.2.7",
       "repositoryURL": "https://gitcode.com/AICO-Ascend/AICO-Profile"
     }
   ],
   "downloads": [
     {
-      "filename": "AICO-0.1.0-alpha.2-mac-arm64-offline.tar.gz",
-      "bytes": 439002482,
-      "sha256": "c6ccfa52c2f57ca3b23b37661707c98f376fb92b2bfa60a38d13da85ad32f28c",
+      "filename": "AICO-0.1.0-alpha.2-mac-arm64-profile-0.2.7-offline.tar.gz",
+      "bytes": 439019749,
+      "sha256": "bf9b167e171bcd6a233ee24d9faee0075d5c5097e3033cfa490404f940ca0432",
       "label": "macOS 完整离线包 · 桌面 + PPT + Profile",
       "kind": "offline",
       "platform": "darwin",
       "arch": "arm64",
       "version": "0.1.0-alpha.2",
       "status": "ready",
-      "url": "https://gitcode.com/AICO-Ascend/AICO-Harness/releases/download/v0.1.0-alpha.2/AICO-0.1.0-alpha.2-mac-arm64-offline.tar.gz"
+      "url": "https://gitcode.com/AICO-Ascend/AICO-Harness/releases/download/v0.1.0-alpha.2/AICO-0.1.0-alpha.2-mac-arm64-profile-0.2.7-offline.tar.gz"
     },
     {
       "filename": "AICO-0.1.0-alpha.2-mac-arm64-host.dmg",
@@ -47,16 +47,16 @@
       "url": "https://gitcode.com/AICO-Ascend/AICO-Harness/releases/download/v0.1.0-alpha.2/AICO-0.1.0-alpha.2-mac-arm64-host.dmg"
     },
     {
-      "filename": "AICO-0.1.0-alpha.2-win-x64-offline.tar.gz",
-      "bytes": 315787193,
-      "sha256": "1e46f1041a231703c640f1f976c9451a65914dfe47b9a6ecd49ab159f5221b9a",
-      "label": "Windows 完整离线包 · 桌面 + PPT",
+      "filename": "AICO-0.1.0-alpha.2-win-x64-profile-0.2.7-offline.tar.gz",
+      "bytes": 403672998,
+      "sha256": "c9b8fff0a66bbb01d71bbc5f9b83cdd9a3b2f3690a173538e998fbab8a9162fd",
+      "label": "Windows 完整离线包 · 桌面 + PPT + Profile",
       "kind": "offline",
       "platform": "win32",
       "arch": "x64",
       "version": "0.1.0-alpha.2",
       "status": "ready",
-      "url": "https://gitcode.com/AICO-Ascend/AICO-Harness/releases/download/v0.1.0-alpha.2/AICO-0.1.0-alpha.2-win-x64-offline.tar.gz"
+      "url": "https://gitcode.com/AICO-Ascend/AICO-Harness/releases/download/v0.1.0-alpha.2/AICO-0.1.0-alpha.2-win-x64-profile-0.2.7-offline.tar.gz"
     },
     {
       "filename": "AICO-0.1.0-alpha.2-win-x64-host.exe",
@@ -83,16 +83,16 @@
       "url": "https://gitcode.com/AICO-Ascend/AICO-Harness/releases/download/v0.1.0-alpha.2/AICO-PPT-0.1.8-skill.zip"
     },
     {
-      "filename": "AICO-Profile-0.2.6-skill.zip",
-      "bytes": 19550,
-      "sha256": "fb9370a5fac436f1b455345beafdb472a9c01d32032cedabfc1c1a2bfab1defd",
+      "filename": "AICO-Profile-0.2.7-skill.zip",
+      "bytes": 19582,
+      "sha256": "4e6f2848ef46be29e0e2452d76d64c157f2a80c50e1250d9cd14cffe450f7b78",
       "label": "AICO-Profile 独立 Skill · 性能文件分析",
       "kind": "skill",
       "platform": "any",
       "arch": "any",
-      "version": "0.2.6",
+      "version": "0.2.7",
       "status": "ready",
-      "url": "https://gitcode.com/AICO-Ascend/AICO-Harness/releases/download/v0.1.0-alpha.2/AICO-Profile-0.2.6-skill.zip"
+      "url": "https://gitcode.com/AICO-Ascend/AICO-Harness/releases/download/v0.1.0-alpha.2/AICO-Profile-0.2.7-skill.zip"
     }
   ],
   "demos": [
