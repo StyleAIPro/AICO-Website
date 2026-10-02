@@ -2,7 +2,7 @@
 
 当前公开版本为 **beta0.1**：四个插件各自在 GitCode 仓库 Release 发布一个 Windows 安装包，官网 `docs/install.html` 提供手动下载、安装命令、包内版本和 SHA-256。`docs/beta0.1.json` 记录已通过匿名下载校验的附件和源码提交。首页、安装页和开发者页使用明确的 `manual-beta` 模式，不读取尚未发布的签名渠道，也不宣称自动安装或稳定版验收已完成。
 
-本次页面部署文件为 `scripts/beta-site-files.json` 所列生产页面、运行脚本及发布说明；历史素材继续使用线上已有文件。`*-next.html` 与 templates 为独立设计候选，不随本次主页面更新。
+正式官网采用当前新版 story 页面，保留开场动画、联动演示和实操视频。`scripts/publish-beta-pages.py` 将三个 `*-next.html` 页面发布为正式入口，并接入 beta0.1 已核验下载；`scripts/beta-site-files.json` 列出页面与完整资源。修改设计后先运行 `node scripts/build-story-template.mjs`，再运行发布脚本。
 
 下文的 schema 3 导入、签名和公网校验流程保留用于后续签名目录发布；Beta 手动下载清单不作为客户端受信任的自动安装索引。
 
