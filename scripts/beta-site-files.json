@@ -260,5 +260,7 @@
   "docs/site-motion.js",
   "docs/site.css",
   "scripts/beta-site-files.json",
-  "scripts/publish-beta-pages.py"
+  "scripts/publish-beta-pages.py",
+  "scripts/verify-opening-startup.cjs",
+  "templates/cast-and-render/story/opening-loader.js"
 ]
