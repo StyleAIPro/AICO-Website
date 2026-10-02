@@ -1,0 +1,12 @@
+[
+  "README.md",
+  "docs/index.html",
+  "docs/install.html",
+  "docs/developers.html",
+  "docs/site.css",
+  "docs/site-motion.js",
+  "docs/aico-release.mjs",
+  "docs/beta-release.mjs",
+  "docs/beta0.1.json",
+  "scripts/beta-site-files.json"
+]

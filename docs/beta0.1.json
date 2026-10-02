@@ -1,0 +1,55 @@
+{
+  "schema": 1,
+  "release": "beta0.1",
+  "channel": "beta",
+  "platform": "win32-x64",
+  "installation": "manual",
+  "desktopVersion": "2.0.13",
+  "dshVersion": "0.1.5-rc.2",
+  "products": [
+    {
+      "id": "aico-harness",
+      "version": "2.0.0-dev.61",
+      "repository": "AICO-Ascend/AICO-Harness-Plugin",
+      "commit": "14651553a01947c657730f23568a38419114ba07",
+      "filename": "aico-harness-beta0.1-win32-x64.tgz",
+      "url": "https://gitcode.com/AICO-Ascend/AICO-Harness-Plugin/releases/download/beta0.1/aico-harness-beta0.1-win32-x64.tgz",
+      "bytes": 226236111,
+      "sha256": "7371589b32327b1d8e15ccb8c7ed57dd6d27c4b1712e1e89896263271bde6a83"
+    },
+    {
+      "id": "aico-wiki",
+      "version": "0.1.0-alpha.31",
+      "repository": "AICO-Ascend/AICO-wiki",
+      "commit": "667d6be815b7720e0b2e8a778b2ef03b78f2ed79",
+      "filename": "aico-wiki-beta0.1-win32-x64.tgz",
+      "url": "https://gitcode.com/AICO-Ascend/AICO-wiki/releases/download/beta0.1/aico-wiki-beta0.1-win32-x64.tgz",
+      "bytes": 1440462,
+      "sha256": "9c7472f210e0c69809d6e90ca68c274d5fb244f289cfb27dfe6391e83582eef2"
+    },
+    {
+      "id": "aico-ppt-skill",
+      "version": "0.1.26",
+      "repository": "AICO-Ascend/AICO-PPT",
+      "commit": "5c1511140e7f64a0ae8b57b97df566adeefdca65",
+      "filename": "aico-ppt-skill-beta0.1-win32-x64.tgz",
+      "url": "https://gitcode.com/AICO-Ascend/AICO-PPT/releases/download/beta0.1/aico-ppt-skill-beta0.1-win32-x64.tgz",
+      "bytes": 246888811,
+      "sha256": "272cb9945abb580e632ec8a22f949a37c1f6d017ad8e05ca485082daff09fc76"
+    },
+    {
+      "id": "aico-profile",
+      "version": "0.2.24",
+      "repository": "AICO-Ascend/AICO-Profile",
+      "commit": "2988ce91a051453b3bab0f1f45164739dd9b8e84",
+      "filename": "aico-profile-beta0.1-win32-x64.tgz",
+      "url": "https://gitcode.com/AICO-Ascend/AICO-Profile/releases/download/beta0.1/aico-profile-beta0.1-win32-x64.tgz",
+      "bytes": 36863801,
+      "sha256": "a26e84a0a54be63824d68dcf856470531ab74787a2e3c32440e55d0885696a10"
+    }
+  ],
+  "limitations": [
+    "WSL 模型网关独立运行依赖尚未完整交付，新 WSL 环境不能直接即装即用。",
+    "最终 Desktop 业务联合验收及生产签名尚未完成。"
+  ]
+}
