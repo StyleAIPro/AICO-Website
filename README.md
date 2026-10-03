@@ -43,3 +43,5 @@ node scripts/verify-public-aico-release.mjs public-verification.json
 公网复验完成后，运行 `node scripts/approve-aico-website.mjs /安全位置/public-verification.json docs/aico`。此命令会再次执行完整公网复验，再原子写入 `docs/aico/website-ready/<channel>.json`；将该文件部署到 Pages 后，网页仅在它与当前 channel 的 sequence、releaseId、channel SHA-256、snapshot SHA-256 全部匹配时启用插件下载。新 channel 推进后旧放行记录自动失效；同一 sequence 不允许用不同字节覆盖。放行记录只控制官网按钮，不替代签名索引、客户端验签或最终包实机验收。
 
 旧版 AICO 0.1.x 附件属于历史发行记录。当前手动 Beta 版本由 `docs/beta0.1.json` 记录；未来自动安装渠道仍需独立的签名与验收流程。全站共用 `docs/site.css`；首页唯一的分步滚动展示由可在本地文件预览中执行的 `docs/site-motion.js` 驱动，并遵循浏览器“减少动态效果”设置。
+
+开场动效使用同一原版动画的内嵌轻量预览，避免公网逐帧下载落后于滚动；原清晰度资源在后台加载。修改原开场素材后先运行 `python3 scripts/build-opening-preview.py`（需要 Pillow），再构建页面。`node scripts/verify-opening-continuity.cjs` 会阻断高清网络请求，检查前两段过渡的实际画布像素是否持续变化。

@@ -43,3 +43,30 @@ function retryOpeningFrame(index){
 var openingDeadline=setTimeout(function(){
   document.getElementById('boot').classList.add('done');
 },2500);
+
+// All preview samples arrive with the document, so scrolling never races HTTP.
+var previewFrames=new Map();
+Promise.all(FILM.preview.frames.map(function(frame){
+  var raw=atob(frame.data),bytes=new Uint8Array(raw.length);
+  for(var i=0;i<raw.length;i++)bytes[i]=raw.charCodeAt(i);
+  var blob=new Blob([bytes],{type:'image/webp'});
+  function imageFallback(){return new Promise(function(resolve,reject){
+    var image=new Image(),url=URL.createObjectURL(blob);
+    image.onload=function(){URL.revokeObjectURL(url);resolve(image);};
+    image.onerror=function(){URL.revokeObjectURL(url);reject(new Error('Preview unavailable'));};image.src=url;
+  });}
+  return (typeof createImageBitmap==='function'?createImageBitmap(blob).catch(imageFallback):imageFallback()).then(function(image){
+    previewFrames.set(frame.index,{image:image,used:0});
+  });
+})).then(function(){
+  clearTimeout(openingDeadline);setLoading(1);boot.classList.add('done');warmFilm();drawn=-1;schedule();
+}).catch(function(){/* Full-resolution frame loading remains independent. */});
+function openingPair(lower,upper){
+  var a=cache.get(lower),b=cache.get(upper);
+  if(a&&b)return {a:a,b:b,mix:target-lower,preview:false};
+  var start=Math.floor(target/FILM.preview.step)*FILM.preview.step;
+  var end=Math.min(start+FILM.preview.step,FILM.frames.length-1);
+  a=previewFrames.get(start);b=previewFrames.get(end);
+  if(!a||!b)return null;
+  return {a:a,b:b,mix:end===start?0:(target-start)/(end-start),preview:true};
+}

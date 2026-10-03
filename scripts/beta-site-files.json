@@ -260,8 +260,11 @@
   "docs/site-motion.js",
   "docs/site.css",
   "scripts/beta-site-files.json",
+  "scripts/build-opening-preview.py",
   "scripts/publish-beta-pages.py",
+  "scripts/verify-opening-continuity.cjs",
   "scripts/verify-opening-recovery.cjs",
   "scripts/verify-opening-startup.cjs",
-  "templates/cast-and-render/story/opening-loader.js"
+  "templates/cast-and-render/story/opening-loader.js",
+  "templates/cast-and-render/story/opening-preview.json"
 ]
