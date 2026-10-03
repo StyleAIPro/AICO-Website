@@ -1,0 +1,24 @@
+.developer-section{position:relative;max-width:1500px;margin:auto;padding:90px 7vw 100px;scroll-margin-top:70px;border-top:1px solid #b6ad9860}
+.developer-section .page-hero{max-width:780px;margin-bottom:65px}
+.developer-section .eyebrow{font-size:13px;color:#796237;margin:0 0 20px}
+.developer-section #developer-title{font-size:clamp(40px,4.5vw,72px);font-weight:400;letter-spacing:-.055em;line-height:1.2;margin:0 0 28px}
+.developer-section .page-hero>p:not(.eyebrow){font-size:17px;line-height:1.85;margin-bottom:24px}
+.developer-section .docs-layout{display:grid;grid-template-columns:150px minmax(0,1fr);gap:65px}
+.developer-section .docs-nav{display:flex;flex-direction:column;gap:8px;align-self:start}
+.developer-section .docs-nav a{font-size:14px;min-height:44px;padding:12px 0;text-decoration:none}
+.developer-section .docs-nav a:hover{text-decoration:underline}
+.developer-section .docs-content{min-width:0}
+.developer-section .docs-content section{padding-bottom:45px;margin-bottom:45px;border-bottom:1px solid #b6ad9860}
+.developer-section .docs-content h2{margin-bottom:24px}
+.developer-section .docs-content p{margin:20px 0}
+.developer-section .docs-content ul{padding-left:22px}
+.developer-section .docs-content li{margin-bottom:12px}
+.developer-section .note{border-left:2px solid #ad925a;background:#eee9dc80;padding:18px 22px}
+.developer-section .table-wrap{overflow-x:auto;margin-top:28px;border:1px solid #b6ad9860;border-radius:8px}
+.developer-section table{width:100%;border-collapse:collapse;font-size:13px;line-height:1.8}
+.developer-section th,.developer-section td{text-align:left;padding:16px;vertical-align:top;border-bottom:1px solid #b6ad9840;min-width:140px}
+.developer-section th{font-weight:500;color:#655738;background:#eee9dc60}
+.developer-section .dev-recipe{padding:14px 20px;margin:18px 0;border:1px solid #b6ad9860;border-radius:8px;background:#faf9f650}
+@media(max-width:759px){.developer-section{padding:65px 24px 70px}.developer-section .page-hero{margin-bottom:35px}.developer-section .docs-layout{display:block}.developer-section .docs-nav{flex-direction:row;flex-wrap:wrap;gap:4px 22px;margin-bottom:35px}.developer-section .page-hero>p:not(.eyebrow){font-size:15px}}
+.chrome a.mark{display:inline-flex;align-items:center;min-height:44px;text-decoration:none;cursor:pointer}
+.chrome a.mark:focus-visible{outline:2px solid #8b6d30;outline-offset:5px;border-radius:4px}

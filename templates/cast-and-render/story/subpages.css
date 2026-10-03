@@ -1,0 +1,16 @@
+/* The same stone, gold and typography as the current candidate; no legacy site CSS. */
+body.aico-subpage{height:auto;min-height:100vh;overflow-x:hidden;background:radial-gradient(ellipse at 18% 15%,#fff9,transparent 55%),linear-gradient(135deg,#f2f0ec,#e5e3dd 55%,#f3f1eb);color:#24241f}
+.aico-subpage main{position:relative;z-index:2;padding-top:65px}
+.aico-subpage .install-section{padding-top:70px;padding-bottom:40px;min-height:0}
+.aico-subpage .developer-section{padding-top:70px;border-top:0}
+.aico-subpage h1{font-size:clamp(40px,4.5vw,72px);font-weight:400;letter-spacing:-.055em;line-height:1.2;margin:0 0 28px}
+.aico-subpage .docs-nav{position:sticky;top:110px}
+.aico-subpage .chrome a[aria-current=page]{text-decoration:underline;text-underline-offset:6px}
+.aico-subpage .product-faq{padding-top:35px;padding-bottom:70px}
+.aico-subpage .chrome .nav a{display:inline-flex!important}
+.aico-subpage .story-footer{position:relative;z-index:2}
+.aico-subpage [id]{scroll-margin-top:100px}
+.aico-subpage #top{scroll-margin-top:0}
+@media(max-width:759px){.aico-subpage main{padding-top:70px}.aico-subpage .install-section,.aico-subpage .developer-section{padding-top:40px}.aico-subpage .docs-nav{position:static}.aico-subpage .chrome .nav{gap:10px}.aico-subpage .chrome .nav a{font-size:12px}.aico-subpage .chrome .nav .product-nav{display:none!important}}
+
+.aico-subpage .install-heading h1{max-width:none;text-align:center}.aico-subpage .developer-section .eyebrow{text-align:left}

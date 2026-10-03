@@ -1,0 +1,109 @@
+<a class="skip-story" href="#harness">跳过开场，探索产品</a>
+<nav class="chapter-dock" aria-label="产品章节">
+  <a href="#top">首页</a><a href="#ppt">PPT</a><a href="#profile">Profile</a><a href="#wiki">Wiki</a><a href="#install">安装</a><a href="#developers">开发者</a>
+</nav>
+<main id="product-story">
+  <section class="story-chapter harness-chapter" id="harness" data-story="harness" aria-labelledby="harness-title">
+    <div class="story-sticky">
+      <div class="story-copy"><p class="product-name">AICO Harness</p><h2 id="harness-title">连接插件与会话，<br>不改变原装 DSH。</h2><p class="story-lead">AICO Harness 是 AICO 系列插件与 DSH 开源框架之间的适配层。通过原版公开插件接口，让业务插件与会话顺畅协作，无需修改 DSH 源码，原装插件继续共存。</p></div>
+      <div class="demo architecture-demo" aria-label="原装宿主、公开接口、Harness 与业务插件架构示意">
+        <div class="diagram-heading"><span>原装之上，按需扩展</span><span>架构示意</span></div>
+        <div class="host-boundary"><strong>原装 DSH Desktop + 配套 DSH</strong><div class="host-parts"><span>会话与工作区</span><span>原装插件继续共存</span></div></div>
+        <div class="flow-link">↕ <span>原版公开插件接口</span></div>
+        <div class="adapter-node"><span class="adapter-ring" aria-hidden="true"></span><div><strong>AICO Harness</strong><p>适配层 · 连接业务视图与会话</p></div></div>
+        <div class="flow-link">↕ <span>会话上下文与工具交互</span></div>
+        <div class="plugin-branches"><span><b>PPT</b>演示创作</span><span><b>Profile</b>性能分析</span><span><b>Wiki</b>个人工作记忆</span></div>
+        <p class="diagram-note">通过原装插件机制安装与卸载，保留原装插件与业务数据。</p>
+      </div>
+      <div class="chapter-baseline"><span>专业能力，各就其位。</span><a href="#harness-tools">看看迁移调优工具</a></div>
+    </div>
+  </section>
+
+  <section class="story-chapter tools-chapter" id="harness-tools" data-story="tools" aria-labelledby="tools-title">
+    <div class="story-sticky">
+      <div class="story-copy"><p class="product-name">AICO Harness · 迁移调优</p><h2 id="tools-title">查询与执行，<br>连起迁移调优。</h2><p class="story-lead">面向昇腾模型迁移与调优，将知识查询、基线检索、远程操作和内容发表接入会话，减少在工具之间反复切换。</p>
+        <div class="tool-choices" role="group" aria-label="选择工具协作场景">
+          <button data-tool="0" aria-pressed="true">内网中路知识库查询</button><button data-tool="1" aria-pressed="false">基线数据查询</button><button data-tool="2" aria-pressed="false">远程服务器连接与命令执行</button><button data-tool="3" aria-pressed="false">发布到企业 Wiki</button><button data-tool="4" aria-pressed="false">稼先发表</button>
+        </div><p class="product-availability">交互画面为设计示意；下方视频展示开发版真实操作，正式插件包待发布核验。</p><div class="video-entry" data-video-group="tools"><span>实操视频准备中</span><small>按场景补充真实操作短片</small></div>
+      </div>
+      <div class="demo tool-flow-demo" aria-label="工具协作设计示意">
+        <div class="diagram-heading"><span>会话中的迁移调优</span><span>设计示意</span></div>
+        <p class="tool-request" data-tool-request>查询这次模型迁移相关的适配经验。</p>
+        <div class="flow-link">↓ <span>理解需求，选择工具</span></div>
+        <div class="tool-active"><span class="tool-signal" aria-hidden="true"></span><strong data-tool-name>内网中路知识库查询</strong></div>
+        <div class="flow-link">↓ <span data-tool-route>检索知识，返回依据</span></div>
+        <div class="tool-response" aria-live="polite"><span>回到当前工作</span><h3 data-tool-result>经验与来源，一起带回会话。</h3><p data-tool-detail>结合检索内容梳理适配思路，再核对原始文档。</p></div>
+        <p class="diagram-note">示例内容，不连接真实知识库或服务器，不执行发表操作。</p>
+      </div>
+      <div class="chapter-baseline"><span>让工具接住具体工作。</span><a href="#ppt">接下来，看看创作</a></div>
+    </div>
+  </section>
+
+  <section class="story-chapter ppt-chapter" id="ppt" data-story="ppt" data-collaboration="ppt" aria-labelledby="ppt-title">
+    <div class="story-sticky">
+      <div class="story-copy"><p class="product-name">AICO PPT</p><h2 id="ppt-title">从一句话，<br>到一份好表达。</h2><p class="story-lead">与 AI 一起组织内容，再亲手打磨细节。让演示成为你的作品，而不只是一次生成的结果。</p><div class="story-steps" aria-label="演示创作步骤"><button data-step="0" aria-pressed="true">构思</button><button data-step="1" aria-pressed="false">打磨</button><button data-step="2" aria-pressed="false">成稿</button></div><p class="step-caption" aria-live="polite">先确定主题和表达目标。</p><div class="video-entry" data-video-group="ppt"><span>实操视频准备中</span><small>PPT · 真实操作素材待提供</small></div></div>
+      <div class="demo collab-demo ppt-collab" data-beat="0" aria-label="AI 指令与演示创作插件联动示意">
+        <div class="collab-topbar"><span><i aria-hidden="true"></i> AI 与演示创作，同步展开</span><span>联动动效示意 · 非实机录屏</span></div>
+        <div class="collab-workspace"><aside class="ai-command-pane"><div class="ai-pane-heading"><span class="ai-chip">AI</span><span>当前会话<small>指令 → 插件 → 反馈</small></span></div><p class="ai-user-request">生成研究简报，再圈选标题、正文和图形，一次提交修改。</p><div class="ai-command"><span data-command-stage>准备指令</span><p data-command-text>正在组织操作步骤。</p></div><div class="ai-tool-call"><span>发送到 PPT</span><strong data-command-action>准备工作区</strong><div class="command-transfer" aria-hidden="true"><i></i></div></div><p class="ai-feedback" data-command-feedback>右侧将展示插件变化。</p><div class="ai-composer">继续描述你想调整的内容 <span aria-hidden="true">↑</span></div></aside><div class="plugin-live-pane"><div class="plugin-toolbar"><span>研究简报</span><span data-plugin-status>等待生成</span></div>
+        <div class="ppt-editor"><div class="slide-thumbnails" aria-label="演示页面"><div data-thumb="0"><span>01</span><b>研究简报</b></div><div data-thumb="1"><span>02</span><b>发现与依据</b></div><div data-thumb="2"><span>03</span><b>下一步行动</b></div></div>
+        <div class="slide-workspace"><div class="plugin-slide"><div class="plugin-slide-meta">AICO / Research notes <span data-slide-number>01 / 03</span></div><h3 data-result-title>研究简报</h3><p data-slide-copy>背景、发现与下一步行动。</p><div class="slide-content-lines"><span>明确问题</span><span>梳理依据</span><span>形成行动</span></div><div class="slide-gold-orbit" aria-hidden="true"><i></i><i></i></div><div class="slide-edit-outline" aria-hidden="true"><b>1</b></div><div class="batch-mark batch-copy" aria-hidden="true"><b>2</b></div><div class="batch-mark batch-art" aria-hidden="true"><b>3</b></div><span class="batch-summary">已圈选 3 处 · 一次发送</span><div class="plugin-slide-footer">研究简报 <span>可继续编辑</span></div></div><div class="plugin-response" data-result-detail>AI 下发指令后，演示内容将在这里逐步生成。</div></div></div></div></div>
+        <div class="collab-controls"><div class="playback-actions"><button type="button" data-playback>暂停演示</button><button type="button" data-replay>重播</button></div><span data-playback-label>准备演示</span><span class="playback-count" data-playback-count>1 / 6</span><div class="playback-progress" aria-hidden="true"><i></i></div></div>
+      </div>
+      <div class="chapter-baseline"><a href="#profile">从表达，走向分析</a><span>生成之后，仍然可以继续打磨。</span></div>
+    </div>
+  </section>
+
+  <section class="story-chapter profile-chapter" id="profile" data-story="profile" data-collaboration="profile" aria-labelledby="profile-title">
+    <div class="story-sticky">
+      <div class="story-copy"><p class="product-name">AICO Profile</p><h2 id="profile-title">每一个判断，<br>都有迹可循。</h2><p class="story-lead">在时间线中定位问题，在对话中深入分析。把结论带回数据，逐一核对。</p><div class="story-steps" aria-label="性能分析步骤"><button data-step="0" aria-pressed="true">全局</button><button data-step="1" aria-pressed="false">聚焦</button><button data-step="2" aria-pressed="false">核对</button></div><p class="step-caption" aria-live="polite">先看完整过程，再选择关注的片段。</p><div class="video-entry" data-video-group="profile"><span>实操视频准备中</span><small>Profile · 真实操作素材待提供</small></div></div>
+      <div class="demo collab-demo profile-collab" data-beat="0" aria-label="AI 指令与性能分析插件联动示意">
+        <div class="collab-topbar"><span><i aria-hidden="true"></i> AI 与性能分析，同步展开</span><span>联动动效示意 · 非实机录屏</span></div>
+        <div class="collab-workspace"><aside class="ai-command-pane"><div class="ai-pane-heading"><span class="ai-chip">AI</span><span>当前会话<small>指令 → 插件 → 反馈</small></span></div><p class="ai-user-request">放大这段时间线，定位关联事件，再回到全局核对。</p><div class="ai-command"><span data-command-stage>准备指令</span><p data-command-text>正在组织操作步骤。</p></div><div class="ai-tool-call"><span>发送到 Profile</span><strong data-command-action>准备工作区</strong><div class="command-transfer" aria-hidden="true"><i></i></div></div><p class="ai-feedback" data-command-feedback>右侧将展示插件变化。</p><div class="ai-composer">继续描述你想调整的内容 <span aria-hidden="true">↑</span></div></aside><div class="plugin-live-pane"><div class="plugin-toolbar"><span>MindStudio Insight · 示意</span><span data-plugin-status>全局视图</span></div><div class="profile-workspace"><div class="zoom-heading"><strong data-result-title>查看完整时间线</strong><span data-zoom-label>1× · 0–30 ms</span></div><div class="zoom-ruler"><span>0 ms</span><span>10 ms</span><span>20 ms</span><span>30 ms</span></div><div class="zoom-tracks"><div class="zoom-row"><span>Compute</span><div class="lane-viewport"><div class="zoom-lane"><i style="left:3%;width:17%"></i><i style="left:25%;width:27%" class="linked-event"></i><i style="left:58%;width:15%"></i><i style="left:80%;width:13%"></i></div></div></div><div class="zoom-row"><span>Communication</span><div class="lane-viewport"><div class="zoom-lane"><i style="left:17%;width:15%"></i><i style="left:43%;width:23%" class="linked-event"></i><i style="left:76%;width:19%"></i></div></div></div><div class="zoom-row"><span>Data loader</span><div class="lane-viewport"><div class="zoom-lane"><i style="left:1%;width:9%"></i><i style="left:30%;width:8%"></i><i style="left:61%;width:8%"></i><i style="left:89%;width:8%"></i></div></div></div><div class="zoom-row"><span>Host</span><div class="lane-viewport"><div class="zoom-lane"><i style="left:6%;width:3%"></i><i style="left:35%;width:3%"></i><i style="left:67%;width:3%"></i><i style="left:94%;width:3%"></i></div></div></div><div class="zoom-selection"><span>10–20 ms</span></div><div class="event-cursor" aria-hidden="true"></div></div><div class="trace-minimap" aria-label="当前可见时间范围"><div></div></div><div class="event-detail"><span>事件关联</span><strong data-event-title>等待选区</strong><p data-result-detail>先查看全局，再把关注区间交给 AI。</p></div><p class="profile-demo-note">示例数据 · 不代表性能基准或诊断结论</p></div></div></div>
+        <div class="collab-controls"><div class="playback-actions"><button type="button" data-playback>暂停演示</button><button type="button" data-replay>重播</button></div><span data-playback-label>准备演示</span><span class="playback-count" data-playback-count>1 / 6</span><div class="playback-progress" aria-hidden="true"><i></i></div></div>
+      </div>
+      <div class="chapter-baseline"><span>从现象，到可以检查的依据。</span><a href="#wiki">把发现留下来</a></div>
+    </div>
+  </section>
+
+  <section class="story-chapter wiki-chapter" id="wiki" data-story="wiki" data-wiki-demo="true" aria-labelledby="wiki-title">
+    <div class="story-sticky">
+      <div class="story-copy"><p class="product-name">AICO Wiki </p><h2 id="wiki-title">每一次对话，<br>都让 Agent 更懂你。</h2><p class="story-lead">从授权会话中整理知识、经验与个人偏好，通过手动或定时整理，为后续任务提供参考。减少重复说明，让协作越来越顺手。</p><div class="story-steps" aria-label="知识沉淀步骤"><button data-step="0" aria-pressed="true">知识</button><button data-step="1" aria-pressed="false">画像</button><button data-step="2" aria-pressed="false">记录</button></div><p class="step-caption" aria-live="polite">资料和讨论，是知识的起点。</p></div>
+      <div class="demo wiki-workbench" data-wiki-beat="0" aria-label="Wiki 会话整理、知识图谱和个人画像联动演示">
+        <div class="wiki-demo-head"><strong>个人工作记忆</strong><span>交互示意 · 示例内容</span></div>
+        <div class="wiki-demo-toolbar"><div class="wiki-demo-tabs" aria-label="切换 Wiki 演示视图"><button type="button" data-wiki-view="2" aria-pressed="true">知识图谱</button><button type="button" data-wiki-view="4" aria-pressed="false">个人画像</button><button type="button" data-wiki-view="5" aria-pressed="false">整理记录</button></div><span class="wiki-run-state" data-wiki-state>待整理 · 2 个会话</span></div>
+        <div class="wiki-demo-body">
+          <aside class="wiki-source-pane"><p class="wiki-eyebrow">授权会话</p><div class="wiki-source"><span>01 · 项目讨论</span><p>先核对计算与通信的时间关系，再判断瓶颈。</p><small>来源有更新</small></div><div class="wiki-source"><span>02 · 汇报偏好</span><p>先给结论，再列证据；用表格比较方案。</p><small>来源有更新</small></div><div class="wiki-agent-status"><span class="wiki-agent-dot"></span><strong data-wiki-agent>等待手动或定时整理</strong><p data-wiki-action>会话变化只做标记，不立即调用模型。</p></div></aside>
+          <div class="wiki-result-pane">
+            <div class="wiki-graph-panel"><div class="wiki-canvas-title"><span>知识图谱</span><small data-wiki-graph-status>已有知识 · 等待更新</small></div>
+              <svg class="wiki-graph" viewBox="0 0 420 240" role="img" aria-label="示例知识图谱：性能分析连接计算事件、通信事件与时间线证据"><g class="wiki-edges" fill="none" stroke="#bdad84" stroke-width="1.5"><path d="M205 116L87 64M205 116L92 185M205 116L330 54M205 116L337 182M87 64L330 54M92 185L337 182"/></g><g class="wiki-node node-main"><circle cx="205" cy="116" r="35"/><text x="205" y="121">性能分析</text></g><g class="wiki-node node-compute"><circle cx="87" cy="64" r="27"/><text x="87" y="68">计算事件</text></g><g class="wiki-node node-communication"><circle cx="92" cy="185" r="27"/><text x="92" y="189">通信事件</text></g><g class="wiki-node node-evidence"><circle cx="330" cy="54" r="29"/><text x="330" y="58">时间线证据</text></g><g class="wiki-node node-new"><circle cx="337" cy="182" r="28"/><text x="337" y="186">分析方法</text></g></svg>
+              <div class="wiki-knowledge-card"><span>关联知识 · 保留来源</span><h3>先核对事件，再判断瓶颈</h3><p>结合计算、通信与时间线证据，核对观察范围。</p><small>来源：项目讨论 · 可查看原文与修订</small></div>
+            </div>
+            <div class="wiki-persona-panel" hidden><p class="wiki-eyebrow">个人画像 · 用户原句为依据</p><div class="wiki-persona-map"><svg class="persona-connectors" viewBox="0 0 440 310" preserveAspectRatio="none" aria-hidden="true"><path d="M220 155L157 48H110M220 155L157 155H110M220 155L157 260H110M220 155L283 48H330M220 155L283 155H330M220 155L283 260H330"/></svg><div class="persona-digital-human"><img src="../../docs/assets/install/wiki-persona-robot.jpg" alt="Wiki 插件中的电脑头数字人" loading="lazy" width="768" height="434"><span>协作画像<small>来自授权会话</small></span></div>
+              <div class="persona-trait trait-one"><span>表达偏好</span><strong>先结论，后证据</strong><small>汇报偏好</small></div>
+              <div class="persona-trait trait-two"><span>呈现方式</span><strong>用表格比较</strong><small>汇报偏好</small></div>
+              <div class="persona-trait trait-three"><span>协作特征</span><strong>重视核对依据</strong><small>项目讨论</small></div>
+              <div class="persona-trait trait-four"><span>性能取舍</span><strong>先验证再优化</strong><small>补充会话示例</small></div>
+              <div class="persona-trait trait-five"><span>工作习惯</span><strong>分步检查结果</strong><small>补充会话示例</small></div>
+              <div class="persona-trait trait-six"><span>当前任务</span><strong>聚焦迁移分析</strong><small>仅限本次任务</small></div>
+            </div><p class="wiki-pane-note">示例画像 · 可查看依据、纠正或不再记忆，不推断永久性格。</p></div>
+            <div class="wiki-record-panel" hidden><p class="wiki-eyebrow">整理记录 · 本次示例</p><h3>整理完成，结果可追溯。</h3><ol><li>确认授权范围与模型</li><li>读取来源，比较已有记忆</li><li>更新知识与个人画像</li><li>保留来源与本次整理记录</li></ol><div class="wiki-record-summary">知识页可查看修订、纠正或不再记忆；设置可管理来源、每日计划与 Agent 使用。</div><p class="wiki-pane-note">查看记录不会重复发起整理。</p></div>
+            <div class="wiki-confirm-panel" hidden><span class="wiki-eyebrow">立即整理 · 确认范围</span><h3>只整理本次变化。</h3><p>同步完成 · 2 个授权会话<br>使用已配置模型与本次预算</p><span class="wiki-confirm-action">确认后开始 →</span><small>演示自动推进，不执行真实整理</small></div>
+          </div>
+        </div>
+        <div class="wiki-demo-footer"><div><button type="button" data-wiki-play>暂停演示</button><button type="button" data-wiki-replay>重播</button></div><span data-wiki-caption>会话变化进入待整理队列</span><span data-wiki-count>1 / 6</span><div class="wiki-demo-progress"><i></i></div></div>
+      </div>
+      <div class="chapter-baseline"><a class="install-trial-cta" href="#install">开始安装试用 <span aria-hidden="true">→</span></a><span>不是另一个孤立的答案。</span></div>
+    </div>
+  </section>
+
+  <section class="install-section" id="install" data-story="install" aria-labelledby="install-title">
+    <div class="install-heading"><p class="product-name">开始使用 AICO</p><h2 id="install-title">把下一项工作，<br>带进来。</h2><p class="story-lead">保留原版工作台，加入你需要的专业能力。</p></div>
+    <div class="platform-line"><span>Windows</span><span>macOS 敬请期待</span><span>具体可用版本以安装页核验结果为准</span></div>
+    <ol class="install-steps"><li><span class="install-number">01</span><h3>准备原版 Desktop</h3><p>按安装页说明安装兼容的原版 DSH Desktop。已有对应版本可跳过。</p><details><summary>查看说明</summary><p>AICO 不包含修改版宿主。先在安装页核对 Desktop 与插件的兼容组合，再安装原维护方提供的版本。</p></details></li><li><span class="install-number">02</span><h3>加入 AICO Harness</h3><p>使用原版插件安装机制接入 Harness，保留原装插件与现有工作区。</p><details><summary>查看说明</summary><p>下载经过核验的 Windows 插件包，按安装页给出的版本绑定命令操作。不使用本模板生成的占位命令。</p></details></li><li><span class="install-number">03</span><h3>选择专业能力</h3><p>按需加入 PPT、Profile 等业务插件，并核对各插件的依赖与可用状态。</p><details><summary>查看说明</summary><p>业务插件不必全部安装。Wiki 仍在开发；模型可使用本机连接，或由 Windows Harness 的可选 WSL 模型网关连接，工具仍在 Windows 执行。</p></details></li></ol>
+    <div class="install-actions"><a class="pill" href="../../docs/install.html">查看下载与安装</a><a class="quiet-link" href="../../docs/developers.html">开发者文档</a></div><p class="release-caution">这是产品展示模板。下载、兼容版本和安装命令以安装页的核验状态为准。</p>
+  </section>
+  <footer class="story-footer"><img src="{{WORDMARK}}" alt="AICO" width="743" height="254"><p>对话、工具与成果，在同一个工作台。</p><a href="#top">回到开场 ↑</a></footer>
+</main>
+<noscript><style>.boot,.stage,.panels,.foot,.track,.chapter-dock{display:none!important}.story-chapter{height:auto!important}.story-sticky{position:relative!important;min-height:900px}.story-copy,.demo{opacity:1!important;transform:none!important}</style><p class="no-script-note">动态展示未启用，以下产品内容和安装指引仍可阅读。</p></noscript>
+
+<dialog class="video-dialog" aria-labelledby="video-title"><div class="video-dialog-head"><h2 id="video-title">实操视频</h2><button type="button" data-video-close aria-label="关闭实操视频">关闭 ×</button></div><div class="video-switcher" role="group" aria-label="选择实操视频"></div><div class="video-playback"><button type="button" data-video-play>播放并开启旁白</button><span>中文旁白 · 字幕已嵌入画面</span></div><video controls playsinline preload="none" aria-label="实操视频播放器"></video><p class="video-error" role="status"></p></dialog>

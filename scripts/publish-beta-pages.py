@@ -38,5 +38,7 @@ assets=set()
 for name in ['index','install','developers']:
  assets.update('docs/'+ref for ref in re.findall(r'''["']\./(assets/[^"'?]+)''',(docs/f'{name}.html').read_text()))
 for ref in assets:assert (root/ref).is_file(),ref
-files+=['scripts/publish-beta-pages.py']+sorted(assets)
+sources=json.loads((root/'scripts/beta-source-files.json').read_text())
+for source in sources:assert (root/source).is_file(),source
+files+=sources+['scripts/publish-beta-pages.py']+sorted(assets)
 (root/'scripts/beta-site-files.json').write_text(json.dumps(sorted(set(files)),indent=2)+'\n')

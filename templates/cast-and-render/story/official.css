@@ -1,0 +1,15 @@
+/* Content pass: retain the approved stone/gold motion; no new pinned sections. */
+.panel h1,.panel .opening-heading{font-family:inherit;font-weight:400;font-size:clamp(40px,6.4vw,98px);line-height:1.17;letter-spacing:-.055em;margin:0;max-width:15ch;text-wrap:balance}
+.panel .sub{line-height:1.75;max-width:38em}
+.panel:last-child .opening-heading{font-size:clamp(36px,4.5vw,72px)}
+.capability-list{margin:26px 0 0;max-width:36em}
+.capability-list>div{border-top:1px solid #65583c33;padding:14px 0}
+.capability-list dt{font-size:15px;color:#292820;margin:0 0 6px;font-weight:600}
+.capability-list dd{font-size:14px;line-height:1.75;color:#55544c;margin:0}
+.product-availability{font-size:12px;line-height:1.65;color:#625943;margin:12px 0 0}
+.product-faq{max-width:1120px;margin:0 auto;padding:80px 6vw;scroll-margin-top:110px}
+.product-faq h2{font-size:clamp(27px,3vw,44px);font-weight:400;letter-spacing:-.04em;margin:0 0 32px}
+.product-faq details{border-top:1px solid #65583c44;padding:0 4px}
+.product-faq summary{cursor:pointer;padding:22px 0;font-size:17px;line-height:1.6}
+.product-faq details p{font-size:15px;line-height:1.85;max-width:58em;margin:0 0 24px;color:#55544c}
+@media(max-width:759px){.panel h1,.panel .opening-heading{font-size:clamp(32px,8vw,52px)}.panel:last-child .opening-heading{font-size:clamp(30px,7.4vw,48px)}.panel .sub{font-size:14px}.capability-list>div{padding:12px 0}.product-faq{padding:56px 24px}.product-faq summary{font-size:16px}}

@@ -1,47 +1,43 @@
-# AICO 官网发布件
+# AICO 官网
 
-当前公开版本为 **beta0.1**：四个插件各自在 GitCode 仓库 Release 发布一个 Windows 安装包，官网 `docs/install.html` 提供手动下载、安装命令、包内版本和 SHA-256。`docs/beta0.1.json` 记录已通过匿名下载校验的附件和源码提交。首页、安装页和开发者页使用明确的 `manual-beta` 模式，不读取尚未发布的签名渠道，也不宣称自动安装或稳定版验收已完成。
+当前公开版本 **beta0.1**。官网在 [GitHub Pages](https://styleaipro.github.io/AICO-Website/)，从 `main` 分支 `/docs` 部署。四个插件分别在 GitCode Release 提供一个完整 Windows x64 安装包；附件不放进网站仓库。
 
-正式官网采用当前新版 story 页面，保留开场动画、联动演示和实操视频。`scripts/publish-beta-pages.py` 将三个 `*-next.html` 页面发布为正式入口，并接入 beta0.1 已核验下载；`scripts/beta-site-files.json` 列出页面与完整资源。修改设计后先运行 `node scripts/build-story-template.mjs`，再运行发布脚本。
+## 当前页面与版本
 
-下文的 schema 3 导入、签名和公网校验流程保留用于后续签名目录发布；Beta 手动下载清单不作为客户端受信任的自动安装索引。
+- `docs/index.html`：当前新版首页，包含品牌开场、产品演示与实操视频。
+- `docs/install.html`：下载、依赖、安装命令及 WSL 模型网关说明。
+- `docs/developers.html`：原装宿主开发边界、源码标签与验证范围。
+- `docs/beta0.1.json`：已匿名回下载核验的附件、SHA-256、包内版本和源码提交。
 
+页面使用 `manual-beta`，`beta-release.mjs` 只增强命令编辑和复制，关闭 JavaScript 仍能下载。固定原装社区版 Desktop 2.0.13 + DSH 0.1.5-rc.2；不发布修改版宿主。WSL 只连接模型，macOS 暂缓。生产签名自动安装渠道和最终包联合验收尚未完成，后续渠道维护见 [SIGNED-RELEASE.md](SIGNED-RELEASE.md)。
 
-> 当前产品口径（2026-09-19）：平台只分 Windows／macOS，macOS 暂缓。Windows Harness 内含可选 WSL 模型网关，业务插件和运行时只准备 Windows；不发布 Linux 业务平台包或修改版宿主。README 描述源码机制，不能替代当前最终包验收与匿名公网发布回执。
+## 编辑与生成
 
-本仓库只托管 AICO 官网静态发布文件，使用 GitHub Pages 从 `main` 分支的 `/docs` 发布。
+当前源码入口为 `templates/cast-and-render/story/`，构建说明见[模板说明](templates/cast-and-render/README.md)。页面样式与运行脚本由生成器组合并内联；`docs/site.css`、`site-motion.js` 不是当前三页的主要维护入口。
 
-- [AICO-Harness 源码](https://gitcode.com/AICO-Ascend/AICO-Harness-Plugin)
-- [AICO-PPT 源码](https://gitcode.com/AICO-Ascend/AICO-PPT)
-- [AICO-Profile 源码](https://gitcode.com/AICO-Ascend/AICO-Profile)
-- [beta0.1 插件下载](https://styleaipro.github.io/AICO-Website/install.html)
-
-官网首页、Windows 安装指南、开发者页和历史记录在本仓库维护；历史发行素材由 AICO-Harness 的 `scripts/aico/release-hosting.mjs` 生成。本仓库不保存产品源码、安装包或私有发布配置。
-
-更新发行时核验并同步元数据和媒体，保留 `.nojekyll`、本仓库首页与 `install.html`，不要用旧版生成器覆盖新下载流程。媒体路径相对于网页，支持 Pages 项目子路径。官网、文档和签名版本索引统一使用现有 GitHub Pages 站点。
-
-AICO 2.0 分为 AICO-Harness 适配插件与独立业务插件两条产品线。当前 beta0.1 使用原装 DSH Desktop 2.0.13，通过原装插件机制安装，不发布修改版宿主。Windows x64 插件采用手动下载，安装页列出四个 GitCode 附件与校验值；macOS 暂缓。`docs/beta-release.mjs` 仅增强安装命令编辑与复制，关闭 JavaScript 仍能下载。`docs/aico-release.mjs` 的签名渠道加载器在明确标记的手动 Beta 页面不启动，继续保留供后续签名渠道使用。
-
-新 schema 3 签名发现文档保存在 `docs/aico/channels/` 和 `docs/aico/releases/`，不覆盖历史 `docs/release.json`。只有经过构建、平台验收及下载验证的附件才进入签名索引和可用下载按钮；不能用占位 URL 或未签名的占位索引宣称新发布已就绪。二进制附件存放 GitCode Release，不提交到 Pages 仓库。
-
-发布者上传并重新下载核验全部 GitCode 附件后，使用网站仓库自带的导入器写入 Pages 源码：
+运行环境：Node.js 22+、Python 3。已有轻量开场数据可直接构建；只有修改原开场时才需要 Pillow 重新生成预览。
 
 ```bash
-node scripts/import-aico-release.mjs /安全位置/website-import.json
+node scripts/build-story-template.mjs
+python3 scripts/publish-beta-pages.py
+node --test tests/opening-assets.test.mjs tests/split-pages.test.mjs tests/install-command.test.mjs tests/official-content.test.mjs tests/repository-links.test.mjs
+node scripts/serve-preview.mjs 8766
 ```
 
-配置文件使用 schema 1，提供组装器的绝对 `sourceDirectory`（`site/`）、绝对 `artifactDirectory`（从 GitCode 重新下载的完整附件目录）、本站目标 `siteDirectory`（正式发布时为本仓库 `docs/aico`）、`https://styleaipro.github.io/AICO-Website/aico/`、`preview` 或 `stable`，以及由发布负责人独立配置的受信 Ed25519 公钥映射。工具验证 channel/snapshot 原始字节签名、时间、同源不可变路径、所有 GitCode URL、附件字节数和 SHA-256，并拒绝缺失、多余、链接或特殊文件。它先原子加入不可变 snapshot，再推进 channel；既有 release 不允许改写，既有 channel 只允许完全相同的幂等导入或更大的 sequence。私钥和二进制附件不会写入网站仓库。
+预览 `http://127.0.0.1:8766/docs/index.html`。第一条命令生成 `v21.html` 与三个 `*-next.html` 中间页；第二条接入真实 Beta 清单，生成正式三个入口。发布时使用正式入口，不把中间页或旧网站直接覆盖线上。
 
-Pages 部署完成后，必须匿名重新验证公网实际返回的字节：
+修改开场原素材后，先运行 `python3 scripts/build-opening-preview.py`。开场使用原版动画的内嵌轻量预览，高清帧后台加载；保留预览与原始素材摘要校验。不要通过跳到末帧或关闭动画解决首次加载问题。
 
-```bash
-node scripts/verify-public-aico-release.mjs public-verification.json
-```
+## 源码、资源与部署
 
-配置可从 [public-verification.example.json](public-verification.example.json) 复制，只填写正式 channel、渠道名、生产公钥路径和单附件上限。验证器匿名下载 channel、两份签名、snapshot 和其中声明的全部 GitCode 附件，检查 Ed25519、有效期、HTTPS、长度及 SHA-256，成功后在标准输出生成可保存的 JSON 回执。重定向只能继续使用 HTTPS；缺件、篡改、超限和 HTTP 降级都会失败。
+`scripts/beta-source-files.json` 列出当前生成所需的源码、原始素材、文档与基础检查；`scripts/beta-site-files.json` 是最终部署文件集合，包含这些源文件和页面实际引用资源。此前 main 只发布页面产物、缺少生成器的问题由这份明确的源码清单补齐；推送 main 时必须一并带上清单内文件。
 
-公网复验完成后，运行 `node scripts/approve-aico-website.mjs /安全位置/public-verification.json docs/aico`。此命令会再次执行完整公网复验，再原子写入 `docs/aico/website-ready/<channel>.json`；将该文件部署到 Pages 后，网页仅在它与当前 channel 的 sequence、releaseId、channel SHA-256、snapshot SHA-256 全部匹配时启用插件下载。新 channel 推进后旧放行记录自动失效；同一 sequence 不允许用不同字节覆盖。放行记录只控制官网按钮，不替代签名索引、客户端验签或最终包实机验收。
+每次发布前，在空目录按清单复制文件，按上面的命令完成生成与检查，确认没有依赖工作区外的文件。原始开场 `templates/cast-and-render/archive/aico-material-v6.1/index.html` 虽然路径含 archive，仍是生成器的实际输入，必须保留。无需把所有旧实验页面、渲染缓存或原片加入部署。
 
-旧版 AICO 0.1.x 附件属于历史发行记录。当前手动 Beta 版本由 `docs/beta0.1.json` 记录；未来自动安装渠道仍需独立的签名与验收流程。全站共用 `docs/site.css`；首页唯一的分步滚动展示由可在本地文件预览中执行的 `docs/site-motion.js` 驱动，并遵循浏览器“减少动态效果”设置。
+发布顺序：修改源码/元数据 → 生成 → 自动检查与本地浏览器检查 → 将清单中的变更提交并推送 main → 等待 Pages 成功 → 核对公网三页和下载链接。保留 `.nojekyll` 及项目子路径。二进制 Beta 附件和既有标签不可覆盖；网站文档更新不等于插件重发。
 
-开场动效使用同一原版动画的内嵌轻量预览，避免公网逐帧下载落后于滚动；原清晰度资源在后台加载。修改原开场素材后先运行 `python3 scripts/build-opening-preview.py`（需要 Pillow），再构建页面。`node scripts/verify-opening-continuity.cjs` 会阻断高清网络请求，检查前两段过渡的实际画布像素是否持续变化。
+浏览器验收包含前两段开场、反向滚动、弱网、手机、减少动态效果、视频打开/关闭与下载命令。`verify-opening-continuity.cjs` 会阻断高清请求并检查实际画布像素；执行前准备该脚本所需的 Playwright/浏览器路径，不能只用加载成功证明动效连续。
+
+## 文档维护
+
+已完成改版计划、旧信息架构和交接清单直接删除。当前使用规则保存在本页与模板说明；视频来源/制作记录、原装 Desktop 来源研究和版本化发布检查记录保留其证据范围。记录里的“当时未发布”是历史观察，当前发布状态以本页及 Beta 清单为准。

@@ -1,0 +1,9 @@
+{
+  "schema": 1,
+  "channelUrl": "https://styleaipro.github.io/AICO-Website/aico/channels/preview.json",
+  "expectedChannel": "preview",
+  "trustedKeys": {
+    "aico-release-2026": "./production-public.pem"
+  },
+  "maxArtifactBytes": 1073741824
+}
