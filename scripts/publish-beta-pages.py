@@ -27,7 +27,10 @@ for name in ['index','install','developers']:
   s=s.replace('</head>','<style>.component-command input{display:block;width:100%;min-height:44px;margin:12px 0;padding:10px}.component-command pre{white-space:pre-wrap;overflow-wrap:anywhere}.component-command button{min-height:44px;padding:8px 14px;margin:12px 0}.component-card details{margin-top:16px}</style></head>')
  if name=='developers':
   rows=''.join(f'<tr><td><a href="https://gitcode.com/{p["repository"]}/releases/tag/beta0.1">{p["id"]}</a></td><td>{p["version"]}</td><td><a href="https://gitcode.com/{p["repository"]}/commit/{p["commit"]}">{p["commit"][:12]}</a></td></tr>' for p in catalog['products'])
-  s=s.replace('</main>',f'<section class="section"><h2>beta0.1 源码与安装包</h2><p>每个插件仓库使用 beta0.1 标签，包内版本独立。<a href="./beta0.1.json">完整版本与校验清单</a></p><table><thead><tr><th>插件</th><th>包内版本</th><th>源码提交</th></tr></thead><tbody>{rows}</tbody></table></section></main>')
+  release=f'<div id="beta-release"><h3>beta0.1 源码与安装包</h3><p>每个插件仓库使用 beta0.1 标签，包内版本独立。<a href="./beta0.1.json">完整版本与校验清单 ↗</a></p><div class="table-wrap"><table><thead><tr><th scope="col">插件</th><th scope="col">包内版本</th><th scope="col">源码提交</th></tr></thead><tbody>{rows}</tbody></table></div><p class="note">四个 Windows 插件附件已通过匿名下载与 SHA-256 校验。完整 Desktop 业务联合验收及生产签名尚未完成；WSL 独立运行依赖仍待完整交付。</p></div>'
+  s=re.sub(r'<p data-dev-release>.*?</p>',lambda _:release,s,count=1)
+  s=s.replace('源码可供开发参考 · 可复现发布组合待提供','beta0.1 · 源码标签与 Windows 安装包已发布')
+  s=s.replace('正式组合需要切换到发布清单指定的 tag / commit。当前尚未发布包含源码提交、依赖与资源版本的完整清单，无法承诺外部开发者复现同一交付版本。下面命令用于本地开发；正式安装请使用安装页通过核验的包。','复现 beta0.1 源码时，请在各仓库切换到 beta0.1 标签；具体提交与包内版本见下方“验证与发布”。下面命令用于本地开发，安装请使用安装页已核验的 Windows 包。')
  (docs/f'{name}.html').write_text('\n'.join(line.rstrip() for line in s.splitlines())+'\n')
 files=json.loads((root/'scripts/beta-site-files.json').read_text())
 files=[p for p in files if not p.startswith('docs/assets/')]
