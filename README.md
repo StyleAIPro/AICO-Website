@@ -15,7 +15,7 @@
 
 当前源码入口为 `templates/cast-and-render/story/`，构建说明见[模板说明](templates/cast-and-render/README.md)。页面样式与运行脚本由生成器组合并内联；`docs/site.css`、`site-motion.js` 不是当前三页的主要维护入口。
 
-运行环境：Node.js 22+、Python 3。已有轻量开场数据可直接构建；只有修改原开场时才需要 Pillow 重新生成预览。
+运行环境：Node.js 22+、Python 3。构建直接提取原开场的完整 WebP 帧，不再生成低清预览。
 
 ```bash
 node scripts/build-story-template.mjs
@@ -26,7 +26,7 @@ node scripts/serve-preview.mjs 8766
 
 预览 `http://127.0.0.1:8766/docs/index.html`。第一条命令生成 `v21.html` 与三个 `*-next.html` 中间页；第二条接入真实 Beta 清单，生成正式三个入口。发布时使用正式入口，不把中间页或旧网站直接覆盖线上。
 
-修改开场原素材后，先运行 `python3 scripts/build-opening-preview.py`。开场使用原版动画的内嵌轻量预览，高清帧后台加载；保留预览与原始素材摘要校验。不要通过跳到末帧或关闭动画解决首次加载问题。
+开场先下载全部原画资源（约 7.7 MiB），按实际接收字节显示进度，准备好当前画面后再进入。只渲染原始 1280×720 帧，不再使用低清预览。资源包不可用时自动尝试原始分帧；连接长时间无数据或加载失败时提供重试和安装指南入口。原画与原素材的逐字节校验必须通过，不得跳到末帧或关闭动画。
 
 ## 源码、资源与部署
 
@@ -36,7 +36,7 @@ node scripts/serve-preview.mjs 8766
 
 发布顺序：修改源码/元数据 → 生成 → 自动检查与本地浏览器检查 → 将清单中的变更提交并推送 main → 等待 Pages 成功 → 核对公网三页和下载链接。保留 `.nojekyll` 及项目子路径。二进制 Beta 附件和既有标签不可覆盖；网站文档更新不等于插件重发。
 
-浏览器验收包含前两段开场、反向滚动、弱网、手机、减少动态效果、视频打开/关闭与下载命令。`verify-opening-continuity.cjs` 会阻断高清请求并检查实际画布像素；执行前准备该脚本所需的 Playwright/浏览器路径，不能只用加载成功证明动效连续。
+浏览器验收包含前两段开场、反向滚动、弱网、手机、减少动态效果、视频打开/关闭与下载命令。`node scripts/verify-opening-startup.cjs` 启动隔离测试服务，检查真实下载进度、原画就绪后放行、分帧回退、超时、失败重试及手机/减少动态效果；`node scripts/verify-opening-continuity.cjs http://127.0.0.1:8766/docs/index.html` 检查前两段的原画中间帧和实际画布像素。执行前准备脚本所需的 Playwright/浏览器路径，不能只用加载成功证明动效连续。
 
 ## 文档维护
 

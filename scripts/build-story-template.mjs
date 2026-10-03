@@ -6,7 +6,6 @@ import {splitStoryPages} from '../templates/cast-and-render/story/split-pages.mj
 import {officialContent} from '../templates/cast-and-render/story/official-content.mjs';
 const base=new URL('../templates/cast-and-render/',import.meta.url);
 let html=await readFile(new URL('archive/aico-material-v6.1/index.html',base),'utf8');
-const openingSourceHash=createHash('sha256').update(html).digest('hex');
 const read=name=>readFile(new URL('story/'+name,base),'utf8');
 const logo=await readFile(new URL('../docs/assets/aico-brand/aico-wordmark.svg',import.meta.url));
 const assets={};
@@ -27,13 +26,15 @@ const developerContent=await read('developers-content.html');
 content=content.replace(/<section class="install-section"[\s\S]*?<\/section>/,()=>installContent);
 const footer='<footer class="story-footer">';
 content=content.replace(footer,()=>developerContent+'\n'+footer);
-const style=(await read('style.css'))+'\n'+await read('natural.css')+'\n'+await read('downloads.css')+'\n'+await read('developers.css')+'\n'+await read('official.css')+'\n'+await read('next-phase.css')+'\n'+await read('collaboration.css')+'\n'+await read('usability.css')+'\n'+await read('wiki-demo.css');
+const style=(await read('style.css'))+'\n'+await read('natural.css')+'\n'+await read('downloads.css')+'\n'+await read('developers.css')+'\n'+await read('official.css')+'\n'+await read('next-phase.css')+'\n'+await read('collaboration.css')+'\n'+await read('usability.css')+'\n'+await read('wiki-demo.css')+'\n'+await read('opening-loader.css');
 const motion=await read('motion.js');
 const runtime=(await read('natural.js'))+'\n'+await read('intro-settle-stable.js')+'\n'+await read('next-phase.js')+'\n'+await read('collaboration.js')+'\n'+await read('wiki-demo.js');
 function replaceOnce(from,to){if(!html.includes(from))throw new Error('Missing v6 integration seam: '+from.slice(0,80));html=html.replace(from,()=>to);}
 replaceOnce('<html lang="en">','<html lang="zh-CN">');
 html=html.replace(/<title>[^<]*<\/title>/,'<title>AICO · 对话、工具与成果</title>');
 replaceOnce('<body>','<body id="top">');
+replaceOnce('<div class="boot" id="boot" role="status" aria-label="Loading studio film">\n    <div class="bar"><i id="bootBar"></i></div>\n    <p id="bootPct">LOADING 0%</p>\n  </div>',
+  '<div class="boot" id="boot" aria-label="正在加载 AICO 开场"><p class="boot-title">正在准备 AICO</p><div class="bar" id="bootProgress" role="progressbar" aria-label="原画下载进度" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><i id="bootBar"></i></div><p id="bootPct">加载原画 0%</p><p id="bootDetail" class="boot-detail" role="status">正在连接</p><button id="bootRetry" class="boot-retry" type="button" hidden>重新加载</button><a class="boot-guide" href="#install">查看安装指南</a></div><noscript><style>.boot{display:none}</style></noscript>');
 const brand=html.match(/<div class="mark">([\s\S]*?)<\/div>/);
 if(!brand)throw new Error('Missing header brand');
 replaceOnce(brand[0],'<a class="mark" href="#top" aria-label="AICO，回到顶部">'+brand[1]+'</a>');
@@ -50,6 +51,7 @@ replaceOnce('range=document.documentElement.scrollHeight-height;','range=window.
 replaceOnce('if(!a&&!b)return;','if(!a||!b)return;');
 replaceOnce('var CACHE_LIMIT = 12, JOB_LIMIT = 3;','var CACHE_LIMIT = 24, JOB_LIMIT = 3;');
 replaceOnce('for(var d=1;d<=4;d++)','for(var d=1;d<=8;d++)');
+replaceOnce('    queue=queue.filter(function(i,at,all){', '    if(openingState==="preparing")openingInitial=queue.filter(function(i,at,all){return i>=0&&i<FILM.frames.length&&all.indexOf(i)===at;});\n    queue=queue.filter(function(i,at,all){');
 replaceOnce('target=(motion.matches?0:progress)*(FILM.frames.length-1);','target=(motion.matches?(window.pageYOffset>range?1:0):progress)*(FILM.frames.length-1);');
 replaceOnce('var o=enter*(1-leave),y=', 'var o=enter*(1-leave)*(1-window.AICOStory.exit()),y=');
 // The legacy .foot is removed by officialContent; do not access it while painting.
@@ -72,23 +74,27 @@ const frameBytes=film.frames.map(frame=>Buffer.from(frame,'base64'));
 let offset=0;film.offsets=frameBytes.map(bytes=>{const start=offset;offset+=bytes.length;return [start,offset]});
 film.bundle=await asset(Buffer.concat(frameBytes),'bin');
 film.frames=await Promise.all(frameBytes.map(bytes=>asset(bytes,'webp')));
-film.preview=JSON.parse(await read('opening-preview.json'));
-if(film.preview.sourceSha256!==openingSourceHash)throw Error('Opening changed: regenerate with python3 scripts/build-opening-preview.py');
 html=html.replace(filmMatch[0],'var FILM = '+JSON.stringify(film)+';\n'+await read('opening-loader.js'));
 html=html.replace(/    var raw=atob\(FILM.frames\[index\]\)[\s\S]*?    if\(typeof createImageBitmap/,`    return openingFrame(index).then(function(blob){
     if(typeof createImageBitmap`);
-html=html.replace('if(!ready){ready=true;setLoading(1);boot.classList.add("done");}', 'if(!ready){ready=true;clearTimeout(openingDeadline);setLoading(1);boot.classList.add("done");warmFilm();}');
-html=html.replace('}).catch(function(){jobs.delete(index);fail();});','}).catch(function(){retryOpeningFrame(index);});');
-html=html.replace('var lower=Math.floor(target),upper=Math.ceil(target);\n    queue=', 'prioritizeFrames();\n    var lower=Math.floor(target),upper=Math.ceil(target);\n    queue=');
-// Fall back to an embedded interpolation pair, never a frozen network frame.
+replaceOnce('            if(!ready){ready=true;setLoading(1);boot.classList.add("done");}\n', '');
+replaceOnce('if(failed||document.hidden)return;', 'if(failed||document.hidden||(openingState!=="preparing"&&openingState!=="ready"))return;');
+replaceOnce('cache.set(index,{image:image,used:++clock});trim();', 'cache.set(index,{image:image,used:++clock});trim();openingDecoded();');
+replaceOnce('(function(index){\n        decode(index).then(function(image){', '(function(index,attempt){\n        decode(index).then(function(image){\n          if(attempt!==openingAttempt){if(image.close)image.close();return;}');
+replaceOnce('})(id);', '})(id,openingAttempt);');
+replaceOnce('setLoading(.2);', 'setLoading(0);');
+replaceOnce('try{ctx=clip.getContext("2d",{alpha:false,desynchronized:true});if(!ctx)fail();}catch(error){fail();}\n  measure();', 'try{ctx=clip.getContext("2d",{alpha:false,desynchronized:true});if(!ctx)fail();}catch(error){fail();}\n  measure();\n  startOpening();');
+html=html.replace(/  function fail\(\)\{[\s\S]*?\n  function pump/, '  function fail(){showOpeningError();}\n  function pump');
+html=html.replace('}).catch(function(){jobs.delete(index);fail();});','}).catch(function(){if(attempt===openingAttempt){jobs.delete(index);showOpeningError();}});');
+// Render only original-resolution interpolation pairs from the downloaded film.
 html=html.replace('var lower=Math.floor(target),upper=Math.ceil(target),a=cache.get(lower),b=cache.get(upper);', 'var lower=Math.floor(target),upper=Math.ceil(target),pair=openingPair(lower,upper);\n    if(!pair)return;\n    var a=pair.a,b=pair.b;');
-html=html.replace('var key=target.toFixed(4)+":"+Boolean(a)+":"+Boolean(b)+":"+JSON.stringify(composition);', 'var key=target.toFixed(4)+":"+pair.preview+":"+JSON.stringify(composition);');
+html=html.replace('var key=target.toFixed(4)+":"+Boolean(a)+":"+Boolean(b)+":"+JSON.stringify(composition);', 'var key=target.toFixed(4)+":"+JSON.stringify(composition);');
 html=html.replace('ctx.globalAlpha=target-lower;', 'ctx.globalAlpha=pair.mix;');
 html=html.replace('if(a&&b&&upper!==lower)', 'if(a&&b&&pair.mix>0)');
 html=html.replace('ctx.drawImage(image,0,0,1,FILM.height,', 'ctx.drawImage(image,0,0,1,image.height,');
 html=html.replace('ctx.drawImage(image,0,0,FILM.width,1,', 'ctx.drawImage(image,0,0,image.width,1,');
 html=html.replace('ctx.drawImage(image,0,FILM.height-1,FILM.width,1,', 'ctx.drawImage(image,0,image.height-1,image.width,1,');
-html=html.replace('clip.dataset.frame=target.toFixed(3);', 'clip.dataset.frame=target.toFixed(3);clip.dataset.quality=pair.preview?"preview":"full";');
+html=html.replace('clip.dataset.frame=target.toFixed(3);', 'clip.dataset.frame=target.toFixed(3);clip.dataset.quality="full";finishOpening();');
 html=html.replace('image.src=url;\n    });','image.src=url;\n    });\n    });');
 html=html.replace('"url(data:image/webp;base64,"+FILM.frames[0]+")"','"url("+FILM.frames[0]+")"');
 const embedded=[...new Set(html.match(/data:image\/(?:png|webp|svg\+xml);base64,[A-Za-z0-9+/=]+/g)||[])];

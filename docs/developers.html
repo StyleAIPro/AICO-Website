@@ -442,6 +442,20 @@ body{font-family:Arial,'PingFang SC','Microsoft YaHei',sans-serif}
 @media(max-width:1050px){.persona-trait{padding:9px 6px}.persona-trait strong{font-size:11px}.persona-digital-human img{height:195px}.wiki-persona-map{gap:10px 5px;min-height:310px}.persona-digital-human small{font-size:8px}}
 @media(prefers-reduced-motion:reduce){.wiki-workbench .persona-trait,.wiki-workbench .persona-connectors{animation:none!important}}
 
+html[data-opening-loading]{overflow:hidden}
+.boot{gap:14px;padding:24px;text-align:center;transition:opacity .24s ease-out,visibility .24s}
+.boot .boot-title{margin:0;color:var(--fg);font-size:20px;font-weight:500;letter-spacing:.02em}
+.boot .bar{width:min(280px,76vw);margin-top:8px}
+.boot #bootPct{margin:0;color:var(--fg);font-variant-numeric:tabular-nums}
+.boot .boot-detail{margin:0;min-height:20px;max-width:360px;font-size:13px;line-height:1.7;letter-spacing:0;color:#706b62}
+.boot-retry{min-height:44px;padding:10px 24px;border:1px solid #b8b0a0;border-radius:999px;background:transparent;color:var(--fg)}
+.boot-retry:hover{background:#e7e2d8}
+.boot-retry:active{transform:scale(.98)}
+.boot-retry[hidden]{display:none}
+.boot-guide{font-size:13px;color:#706b62;text-underline-offset:4px}
+.boot a:focus-visible,.boot button:focus-visible{outline:2px solid #80612e;outline-offset:4px}
+@media(prefers-reduced-motion:reduce){.boot{transition:none}.boot-retry:active{transform:none}}
+
 
 /* The same stone, gold and typography as the current candidate; no legacy site CSS. */
 body.aico-subpage{height:auto;min-height:100vh;overflow-x:hidden;background:radial-gradient(ellipse at 18% 15%,#fff9,transparent 55%),linear-gradient(135deg,#f2f0ec,#e5e3dd 55%,#f3f1eb);color:#24241f}

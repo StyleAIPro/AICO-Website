@@ -15,15 +15,11 @@ test('bundled opening frames are byte-identical to the approved original',()=>{
   assert.deepEqual(readFileSync(new URL(after.frames[i],page)),expected,`frame ${i}`);
   assert.deepEqual(bundle.subarray(...after.offsets[i]),expected,`bundled frame ${i}`);
  }
- assert.ok(Buffer.byteLength(html)<400000,'homepage including embedded preview stays below 400 KB');
- assert.equal(after.preview.frames[0].index,0);
- assert.equal(after.preview.frames.at(-1).index,after.frames.length-1);
- let previewBytes=0;
- for(const [i,frame] of after.preview.frames.entries()){
-  assert.equal(frame.index,i*4);const bytes=Buffer.from(frame.data,'base64');
-  assert.equal(bytes.toString('ascii',8,12),'WEBP');previewBytes+=bytes.length;
- }
- assert.ok(previewBytes<160000,'complete lightweight preview fits within 160 KB');
+ assert.ok(Buffer.byteLength(html)<200000,'homepage no longer embeds a low-resolution preview');
+ assert.equal(after.preview,undefined);
+ assert.ok(!html.includes('setLoading(.2)'));
+ assert.ok(html.includes('id="bootProgress"'));
+ assert.ok(html.includes('id="bootRetry"'));
  assert.ok(!html.includes('href="https://fonts.googleapis.com'));
  assert.ok(html.includes('href="#studio-title" data-intro-stop="1"'));
  assert.ok(html.includes('href="#surface-title" data-intro-stop="2"'));

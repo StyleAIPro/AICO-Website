@@ -8,14 +8,14 @@
 - `story/split-pages.mjs`、`page-navigation.js`：三页拆分与导航。
 - `story/style.css` 及当前生成器读取的专题 CSS：排版与各模块样式。
 - `story/motion.js`、`natural.js`、`intro-settle-stable.js`：开场进度与自然滚动。
-- `story/opening-loader.js`、`opening-preview.json`：弱网预览、高清帧加载和恢复。
+- `story/opening-loader.js`、`opening-loader.css`：原画下载、真实进度、失败重试和加载页面。
 - `story/next-phase.js`、`collaboration.js`、`wiki-demo.js`：实操视频及产品交互演示。
 
 ## 当前行为约束
 
 保留白色 O-chip、旋转变金、组合成 AICO 的完整开场和三个落点，按钮可推进，用户输入可打断。后续章节自然滚动，保留 PPT/Profile 联动演示、Wiki 记忆流程示意与三段真实实操视频。交互示意不能称为后台真实操作。
 
-媒体按需加载，切换/关闭暂停视频，保留键盘入口、手机排版及减少动态效果。原 241 帧高清素材保持不变；61 帧内嵌轻量预览确保网络未就绪时仍能连续呈现同一动作，高清就绪后在同一进度替换。
+媒体按需加载，切换/关闭暂停视频，保留键盘入口、手机排版及减少动态效果。原 241 帧素材保持不变；原画全部下载、当前画面完成准备后才结束加载页，首帧与中间帧均使用原始分辨率。下载条按字节推进，不使用固定 20% 或模拟进度；失败可重试。
 
 ## 构建输入与旧实验
 
